@@ -62,13 +62,6 @@ class UDPTest {
                 channel.pipeline.addHandler(EchoHandler(self))
             }
 
-        var arguments = CommandLine.arguments.dropFirst(0) // just to get an ArraySlice<String> from [String]
-        if arguments.dropFirst().first == .some("--enable-gathering-reads") {
-            bootstrap = bootstrap.channelOption(ChannelOptions.datagramVectorReadMessageCount, value: 30)
-            bootstrap = bootstrap.channelOption(ChannelOptions.recvAllocator, value: FixedSizeRecvByteBufferAllocator(capacity: 30 * 2048))
-            arguments = arguments.dropFirst()
-        }
-
         let defaultHost = "0.0.0.0"
         let defaultPort = 9999
 
