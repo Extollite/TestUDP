@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		95A57F592538897C00B6B5FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A57F582538897C00B6B5FB /* ContentView.swift */; };
 		95A57F5B2538897D00B6B5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95A57F5A2538897D00B6B5FB /* Assets.xcassets */; };
 		95A57F5E2538897D00B6B5FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95A57F5D2538897D00B6B5FB /* Preview Assets.xcassets */; };
+		95A57F68253889AB00B6B5FB /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 95A57F67253889AB00B6B5FB /* NIOConcurrencyHelpers */; };
+		95A57F6A253889AB00B6B5FB /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 95A57F69253889AB00B6B5FB /* NIO */; };
+		95A57F6D253889B500B6B5FB /* UDPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A57F6C253889B500B6B5FB /* UDPServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,7 @@
 		95A57F5A2538897D00B6B5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95A57F5D2538897D00B6B5FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95A57F5F2538897D00B6B5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95A57F6C253889B500B6B5FB /* UDPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A57F68253889AB00B6B5FB /* NIOConcurrencyHelpers in Frameworks */,
+				95A57F6A253889AB00B6B5FB /* NIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +63,7 @@
 				95A57F5A2538897D00B6B5FB /* Assets.xcassets */,
 				95A57F5F2538897D00B6B5FB /* Info.plist */,
 				95A57F5C2538897D00B6B5FB /* Preview Content */,
+				95A57F6C253889B500B6B5FB /* UDPServer.swift */,
 			);
 			path = TestUDP;
 			sourceTree = "<group>";
@@ -85,6 +92,10 @@
 			dependencies = (
 			);
 			name = TestUDP;
+			packageProductDependencies = (
+				95A57F67253889AB00B6B5FB /* NIOConcurrencyHelpers */,
+				95A57F69253889AB00B6B5FB /* NIO */,
+			);
 			productName = TestUDP;
 			productReference = 95A57F532538897C00B6B5FB /* TestUDP.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +123,9 @@
 				Base,
 			);
 			mainGroup = 95A57F4A2538897C00B6B5FB;
+			packageReferences = (
+				95A57F66253889AB00B6B5FB /* XCRemoteSwiftPackageReference "swift-nio" */,
+			);
 			productRefGroup = 95A57F542538897C00B6B5FB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +154,7 @@
 			files = (
 				95A57F592538897C00B6B5FB /* ContentView.swift in Sources */,
 				95A57F572538897C00B6B5FB /* TestUDPApp.swift in Sources */,
+				95A57F6D253889B500B6B5FB /* UDPServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +284,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TestUDP/Preview Content\"";
+				DEVELOPMENT_TEAM = BVC62Z6K38;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TestUDP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -290,6 +306,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TestUDP/Preview Content\"";
+				DEVELOPMENT_TEAM = BVC62Z6K38;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TestUDP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -326,6 +343,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		95A57F66253889AB00B6B5FB /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		95A57F67253889AB00B6B5FB /* NIOConcurrencyHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A57F66253889AB00B6B5FB /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOConcurrencyHelpers;
+		};
+		95A57F69253889AB00B6B5FB /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A57F66253889AB00B6B5FB /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 95A57F4B2538897C00B6B5FB /* Project object */;
 }

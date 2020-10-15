@@ -6,11 +6,23 @@
 //
 
 import SwiftUI
+import NIO
+
+class EventLoopGroupModel : ObservableObject {
+    @Published var group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
+}
 
 struct ContentView: View {
+    @StateObject var groupModel = EventLoopGroupModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button(action: {
+            DispatchQueue.global(qos: .background).async {
+                UDPTest().run(self.groupModel.group)
+            }
+        }) {
+            Text( "RUN" )
+        }
     }
 }
 
